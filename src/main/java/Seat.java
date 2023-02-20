@@ -18,4 +18,12 @@ public class Seat {
     public void setAllocated() {
         this.allocated = true;
     }
+
+    public Row getRow() {
+        return row;
+    }
+
+    public int getSeatNo() {
+        return seatNo;
+    }
 }

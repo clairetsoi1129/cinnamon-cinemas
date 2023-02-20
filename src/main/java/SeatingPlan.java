@@ -6,8 +6,14 @@ public class SeatingPlan {
     // create a seating plan with 15 seat and marked the seat no.
     public SeatingPlan(){
         seats = new ArrayList<>();
-        for (int i=0; i<15; i++) {
+        for (int i=0; i<5; i++) {
             seats.add(new Seat(Row.A, i+1));
+        }
+        for (int i=5; i<10; i++) {
+            seats.add(new Seat(Row.B, i+1));
+        }
+        for (int i=10; i<15; i++) {
+            seats.add(new Seat(Row.C, i+1));
         }
     }
 
