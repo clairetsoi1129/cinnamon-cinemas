@@ -13,10 +13,10 @@ public class SeatingPlan {
         for (int i=0; i<MAX_SEAT_PER_ROW; i++) {
             seats.add(new Seat(Row.A, i+1));
         }
-        for (int i=MAX_SEAT_PER_ROW; i<MAX_SEAT_PER_ROW*2; i++) {
+        for (int i=0; i<MAX_SEAT_PER_ROW; i++) {
             seats.add(new Seat(Row.B, i+1));
         }
-        for (int i=MAX_SEAT_PER_ROW*2; i<MAX_SEAT_PER_ROW*3; i++) {
+        for (int i=0; i<MAX_SEAT_PER_ROW; i++) {
             seats.add(new Seat(Row.C, i+1));
         }
     }
@@ -25,7 +25,7 @@ public class SeatingPlan {
     public List<Seat> requestSeats(int noOfSeats){
         List<Seat> result = new ArrayList<>();
         if (hasSeats(noOfSeats)) {
-            for (int i = sold; i < noOfSeats; i++) {
+            for (int i = sold; i < noOfSeats+sold; i++) {
                 getSeats().get(i).setAllocated();
                 result.add(getSeats().get(i));
             }

@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestSeatingPlan {
     @Test
@@ -21,11 +22,11 @@ public class TestSeatingPlan {
         }
         for (int i=5; i<10; i++) {
             assertEquals(Row.B, seats.get(i).getRow());
-            assertEquals(i+1, seats.get(i).getSeatNo());
+            assertEquals((i+1) - 5, seats.get(i).getSeatNo());
         }
         for (int i=10; i<15; i++) {
             assertEquals(Row.C, seats.get(i).getRow());
-            assertEquals(i+1, seats.get(i).getSeatNo());
+            assertEquals((i+1) - 10, seats.get(i).getSeatNo());
         }
     }
 
@@ -36,7 +37,7 @@ public class TestSeatingPlan {
         assertEquals(1, seats.size());
         assertEquals(Row.A, seats.get(0).getRow());
         assertEquals(1, seats.get(0).getSeatNo());
-        assertEquals(true, seats.get(0).isAllocated());
+        assertTrue(seats.get(0).isAllocated());
     }
 
     @Test
@@ -46,11 +47,11 @@ public class TestSeatingPlan {
         assertEquals(2, seats.size());
         assertEquals(Row.A, seats.get(0).getRow());
         assertEquals(1, seats.get(0).getSeatNo());
-        assertEquals(true, seats.get(0).isAllocated());
+        assertTrue(seats.get(0).isAllocated());
 
         assertEquals(Row.A, seats.get(1).getRow());
         assertEquals(2, seats.get(1).getSeatNo());
-        assertEquals(true, seats.get(1).isAllocated());
+        assertTrue(seats.get(1).isAllocated());
     }
 
     @Test
@@ -60,15 +61,15 @@ public class TestSeatingPlan {
         assertEquals(3, seats.size());
         assertEquals(Row.A, seats.get(0).getRow());
         assertEquals(1, seats.get(0).getSeatNo());
-        assertEquals(true, seats.get(0).isAllocated());
+        assertTrue(seats.get(0).isAllocated());
 
         assertEquals(Row.A, seats.get(1).getRow());
         assertEquals(2, seats.get(1).getSeatNo());
-        assertEquals(true, seats.get(1).isAllocated());
+        assertTrue(seats.get(1).isAllocated());
 
         assertEquals(Row.A, seats.get(2).getRow());
         assertEquals(3, seats.get(2).getSeatNo());
-        assertEquals(true, seats.get(2).isAllocated());
+        assertTrue(seats.get(2).isAllocated());
     }
 
     @Test
