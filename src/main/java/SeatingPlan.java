@@ -3,6 +3,7 @@ import java.util.List;
 
 public class SeatingPlan {
     private List<Seat> seats;
+    private int sold = 0;
     // create a seating plan with 15 seat and marked the seat no.
     public SeatingPlan(){
         seats = new ArrayList<>();
@@ -18,6 +19,16 @@ public class SeatingPlan {
     }
 
     // provide function for seating plan to check if there is still enough empty seat to allocate
+    public List<Seat> requestSeats(int noOfSeats){
+        List<Seat> result = new ArrayList<>();
+        for (int i=sold; i<noOfSeats; i++){
+            getSeats().get(i).setAllocated();;
+            result.add(getSeats().get(i));
+        }
+        sold += noOfSeats;
+
+        return result;
+    }
 
     // provide function for booking system to mark seat(s) allocated
 

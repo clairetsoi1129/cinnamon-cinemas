@@ -28,4 +28,14 @@ public class TestSeatingPlan {
             assertEquals(i+1, seats.get(i).getSeatNo());
         }
     }
+
+    @Test
+    void testRequest1SeatSuccess() {
+        SeatingPlan seatingPlan = new SeatingPlan();
+        List<Seat> seats = seatingPlan.requestSeats(1);
+        assertEquals(1, seats.size());
+        assertEquals(Row.A, seats.get(0).getRow());
+        assertEquals(1, seats.get(0).getSeatNo());
+        assertEquals(true, seats.get(0).isAllocated());
+    }
 }
