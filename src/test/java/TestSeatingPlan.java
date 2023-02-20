@@ -38,4 +38,44 @@ public class TestSeatingPlan {
         assertEquals(1, seats.get(0).getSeatNo());
         assertEquals(true, seats.get(0).isAllocated());
     }
+
+    @Test
+    void testRequest2SeatSuccess() {
+        SeatingPlan seatingPlan = new SeatingPlan();
+        List<Seat> seats = seatingPlan.requestSeats(2);
+        assertEquals(2, seats.size());
+        assertEquals(Row.A, seats.get(0).getRow());
+        assertEquals(1, seats.get(0).getSeatNo());
+        assertEquals(true, seats.get(0).isAllocated());
+
+        assertEquals(Row.A, seats.get(1).getRow());
+        assertEquals(2, seats.get(1).getSeatNo());
+        assertEquals(true, seats.get(1).isAllocated());
+    }
+
+    @Test
+    void testRequest3SeatSuccess() {
+        SeatingPlan seatingPlan = new SeatingPlan();
+        List<Seat> seats = seatingPlan.requestSeats(3);
+        assertEquals(3, seats.size());
+        assertEquals(Row.A, seats.get(0).getRow());
+        assertEquals(1, seats.get(0).getSeatNo());
+        assertEquals(true, seats.get(0).isAllocated());
+
+        assertEquals(Row.A, seats.get(1).getRow());
+        assertEquals(2, seats.get(1).getSeatNo());
+        assertEquals(true, seats.get(1).isAllocated());
+
+        assertEquals(Row.A, seats.get(2).getRow());
+        assertEquals(3, seats.get(2).getSeatNo());
+        assertEquals(true, seats.get(2).isAllocated());
+    }
+
+    @Test
+    void testRequestSeatFail() {
+        SeatingPlan seatingPlan = new SeatingPlan();
+        List<Seat> seats = seatingPlan.requestSeats(13);
+        seats = seatingPlan.requestSeats(3);
+        assertEquals(0, seats.size());
+    }
 }
