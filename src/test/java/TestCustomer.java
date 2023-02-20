@@ -13,12 +13,12 @@ public class TestCustomer {
     @BeforeEach
     void init() {
         random = Mockito.mock(RandomSeats.class);
-        lenient().when(random.random(1,3)).thenReturn(2);
+        lenient().when(random.random(1,4)).thenReturn(2);
     }
 
     @Test
     void testCustomerRequestNoOfTicket() {
         Customer customer = new Customer("James", random);
-        assertEquals(2,customer.requestTickets());
+        assertEquals(2,customer.getRequestNoOfTicket());
     }
 }
