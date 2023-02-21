@@ -9,15 +9,12 @@ public class SeatingPlan {
     private int sold = 0;
     // create a seating plan with 15 seat and marked the seat no.
     public SeatingPlan(){
+        Row[] rows = Row.values();
         seats = new ArrayList<>();
-        for (int i=0; i<MAX_SEAT_PER_ROW; i++) {
-            seats.add(new Seat(Row.A, i+1));
-        }
-        for (int i=0; i<MAX_SEAT_PER_ROW; i++) {
-            seats.add(new Seat(Row.B, i+1));
-        }
-        for (int i=0; i<MAX_SEAT_PER_ROW; i++) {
-            seats.add(new Seat(Row.C, i+1));
+        for (Row row: rows) {
+            for (int i = 0; i < MAX_SEAT_PER_ROW; i++) {
+                seats.add(new Seat(row, i + 1));
+            }
         }
     }
 
