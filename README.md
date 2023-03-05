@@ -3,8 +3,17 @@
 ## Class Diagram:
 ![class diagram](cinnamon-cinemas.drawio.png)
 
+## To run the unit test:
+1. Run the unit test
+```
+mvn clean test
+```
+
 ## Flow:
 1. Run the BookingSystem main to start the program.
+```
+mvn compile exec:java -Dexec.mainClass="BookingSystem"
+```
 2. It will auto create the customer and generate the random request of 1-3 seats.
 3. After each booking, it will print the seats allocated
 4. If there is not enough seats left, system will ends.
